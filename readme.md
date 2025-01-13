@@ -20,3 +20,7 @@ Le fichier `index.php` ne doit contenir comme code PHP **QUE** l'import et l'ins
 ## Exo 3
 
 Vous allez devoir refaire le même travail que pour les deux exercices précédents. MAIS, en utilissant de l'héritage **obligatoirement**. Vous devrez également traiter vos champs du formulaire 1 par 1, en réalisant un objet pour traiter chacun de ces champs.
+
+## Exo 4
+
+Reprendre le contenu du fichier TP_SAPIN_REFACTO.php et le transformer en Orienté Objet propre et refacto !
