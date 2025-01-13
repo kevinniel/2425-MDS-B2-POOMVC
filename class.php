@@ -19,15 +19,18 @@ class Tabouret {
 
     // Variable dans la classe => attribut
     public $nb_pieds;
-    public $taille;
+    public $taille = 3;
     public $couleur;
     public $is_plie;
+    public $prix_fabrication;
+    private $factor = 15;
 
     // constructeur => la fonction se déclenche directement dès l'instanciation d'un objet
     public function __construct($etat) {
         echo ("coucou");
         $this->is_plie = $etat;
         $this->setCouleur();
+        $this->calculPrixfabrication();
     }
 
     public function setCouleur() {
@@ -50,18 +53,37 @@ class Tabouret {
         echo("je me suis plié !");
     }
 
+    private function calculPrixfabrication() {
+        $this->prix_fabrication = $this->taille * $this->factor;
+    }
+
 }
 
-$toto = new Tabouret(false);
-dd( $toto );
-$toto->nb_pieds = 3;
-dd( $toto );
-$tata = new Tabouret(true);
-dd($tata);
-$tata->deplier();
-dd($tata);
-$tata->plier();
-dd($tata);
+// $toto = new Tabouret(false);
+// dd( $toto );
+// $toto->nb_pieds = 3;
+// dd( $toto );
+// $tata = new Tabouret(true);
+// dd($tata);
+// $tata->deplier();
+// dd($tata);
+// $tata->plier();
+// dd($tata);
 
 
+$tutu = new Tabouret(true);
+dd($tutu);
+$tutu->deplier();
+dd($tutu);
+// error parce que factor private
+// $tutu->factor = 2;
 
+
+// Je veux faire une chaise !
+// Extends => héritage => on récupère tout ce qui est public chez le parent
+class Chaise extends Tabouret {
+    public $dossier;
+}
+
+$c = new Chaise(true);
+dd($c);
