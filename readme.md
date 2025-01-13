@@ -11,3 +11,8 @@ Liste des erreurs à traiter :
 - email : format
 - date : future
 - nb caractères message au moins 50
+
+## Exo 2
+
+Implémenter une classe et un objet pour traiter l'ensemble des erreurs du formulaire. Vous allez aussi exporter votre code PHP dans une autre fichier. Vous l'importerez ensuite dans le HTML avec un `include_once()`.
+Le fichier `index.php` ne doit contenir comme code PHP **QUE** l'import et l'instanciation de votre object (ex: `new Object();`).

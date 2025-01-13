@@ -21,8 +21,24 @@ class Tabouret {
     public $nb_pieds;
     public $taille;
     public $couleur;
+    public $is_plie;
 
-    public $is_plie = true;
+    // constructeur => la fonction se déclenche directement dès l'instanciation d'un objet
+    public function __construct($etat) {
+        echo ("coucou");
+        $this->is_plie = $etat;
+        $this->setCouleur();
+    }
+
+    public function setCouleur() {
+        $couleurs = [
+            "bleu",
+            "blanc",
+            "rouge",
+        ];
+
+        $this->couleur = $couleurs[ random_int(0,2) ];
+    }
 
     public function deplier() {
         $this->is_plie = false;
@@ -36,11 +52,11 @@ class Tabouret {
 
 }
 
-$toto = new Tabouret();
+$toto = new Tabouret(false);
 dd( $toto );
 $toto->nb_pieds = 3;
 dd( $toto );
-$tata = new Tabouret();
+$tata = new Tabouret(true);
 dd($tata);
 $tata->deplier();
 dd($tata);

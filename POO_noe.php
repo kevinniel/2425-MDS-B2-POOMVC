@@ -48,54 +48,8 @@
 </head>
 
 <?php
-$errors = [];
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $nom = htmlspecialchars(trim($_POST['nom'] ?? ''));
-    $prenom = htmlspecialchars(trim($_POST['prenom'] ?? ''));
-    $email = htmlspecialchars(trim($_POST['email'] ?? ''));
-    $telephone = htmlspecialchars(trim($_POST['telephone'] ?? ''));
-    $date = htmlspecialchars(trim($_POST['date'] ?? ''));
-    $message = htmlspecialchars(trim($_POST['message'] ?? ''));
-
-    if (empty($nom)) $errors[] = "Le champ 'Nom' est obligatoire.";
-    if (empty($prenom)) $errors[] = "Le champ 'Prénom' est obligatoire.";
-    if (empty($email)) $errors[] = "Le champ 'Email' est obligatoire.";
-    if (empty($telephone)) $errors[] = "Le champ 'Téléphone' est obligatoire.";
-    if (empty($date)) $errors[] = "Le champ 'Date' est obligatoire.";
-    if (empty($message)) $errors[] = "Le champ 'Message' est obligatoire.";
-
-    // téléphone
-    if (!empty($telephone) && !preg_match('/^\d{10}$/', $telephone)) {
-        $errors[] = "Le numéro de téléphone doit contenir exactement 10 chiffres.";
-    }
-
-    // email
-    if (!empty($email) && !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Le format de l'email est invalide.";
-    }
-
-    //date dans le futur
-    if (!empty($date) && strtotime($date) < time()) {
-        $errors[] = "La date ne peut pas être dans le passé.";
-    }
-
-    // nombre de caractères
-    if (!empty($message) && strlen($message) < 50) {
-        $errors[] = "Le message doit contenir plus de 50 caractères.";
-    }
-
-    // résultat
-    if (empty($errors)) {
-        echo "<p style='color: green;'>Formulaire soumis avec succès !</p>";
-    } else {
-        foreach ($errors as $error) {
-            echo "<p style='color: red;'>$error</p>";
-        }
-    }
-} else {
-    echo "<p style='color: red;'>Le formulaire n'a pas été soumis correctement.</p>";
-}
+include_once('class.php');
+new Tabouret(true);
 ?>
 
 
