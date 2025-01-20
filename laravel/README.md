@@ -47,3 +47,21 @@ Déclencher le tout en remettant à 0 la BDD
 ```
 php artisan migrate:fresh --seed
 ```
+
+## 2 - Routes
+
+fichier `resources/routes/web.php`
+
+Ajouter une route en GET
+```
+Route::get("/toto", function() {
+    return "totoatatatataatat";
+});
+```
+
+Ajouter une route en POST
+```
+Route::post("/tata", function() {
+    return "totoatatatataatat";
+});
+```
