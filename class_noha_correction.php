@@ -82,7 +82,6 @@ class Formulaire
         }
     }
 
-
     public function displayErrors()
     {
         if (!empty($this->errors)) {

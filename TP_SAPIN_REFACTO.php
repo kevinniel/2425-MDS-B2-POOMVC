@@ -1,5 +1,5 @@
 <?php
-$nbEtage = 11;
+$nbEtage = 20;
 $nbMaxEtoile = (3 + 2*($nbEtage - 1))*2 + 1;
 
 $nbEtoile1 = 1;
