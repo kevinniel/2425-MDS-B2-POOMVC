@@ -52,16 +52,22 @@ php artisan migrate:fresh --seed
 
 fichier `resources/routes/web.php`
 
-Ajouter une route en GET
+exemple de création de route : 
 ```
-Route::get("/toto", function() {
-    return "totoatatatataatat";
-});
+Route::get("/products", [ProductController::class, 'index']);
 ```
 
-Ajouter une route en POST
+## 3 - Controller
+
+Créer le fichier
 ```
-Route::post("/tata", function() {
-    return "totoatatatataatat";
-});
+php artisan make:controller ProductController
 ```
+
+Puis créer la méthode 'index'
+
+## 4 - Créer la vue
+
+Dans le dossier `resources/views/products/index.blade.php`
+
+Renseignez le HTML dans votre PHP
