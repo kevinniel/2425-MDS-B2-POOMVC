@@ -10,5 +10,9 @@
         <li>
             <a href="{{ route('products.index') }}">Produits</a>
         </li>
+        <li>
+            <a href="{{ route('products.create') }}">Ajouter un produit</a>
+        </li>
     </ul>
 </nav>
+

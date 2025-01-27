@@ -10,6 +10,7 @@
                 <th>price</th>
                 <th>créé le</th>
                 <th>modifié le</th>
+                <th>action</th>
             </tr>
         </thead>
         <tbody>
@@ -20,6 +21,15 @@
                     <td>{{ $product->price }} €</td>
                     <td>{{ $product->create_at }}</td>
                     <td>{{ $product->updated_at }}</td>
+                    <td>
+                        <a href="{{ route('products.edit', $product->id) }}" title="Modifier">Modifier</a>
+                        <form action="{{ route('products.destroy', $product->id) }}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+                            <button type="submit">Supprimer</button>
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>
